@@ -17,7 +17,7 @@
   
     $item->getOneManga();
 
-    if($item->name != null){
+    if($item->nom != null){
         // create array
         $emp_arr = array(
             "id" =>  $item->id,

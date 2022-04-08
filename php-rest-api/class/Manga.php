@@ -81,24 +81,25 @@
                          nom,
                          auteur,
                          illustration,
-                         nbr_tomes
+                         nbr_tomes,
                          adaptation_anime,
                          nbr_episodes,
                         nbr_saisons
             
                       FROM
-                        ". $this->db_table ."
+                        " . $this->db_table . "
                     WHERE 
                        id = :id
                     LIMIT 0,1";
 
             $stmt = $this->connect->prepare($sqlQuery);
 
-            $stmt->bindParam(1, $this->id);
+            //$stmt->bindParam(1, $this->id);
 
-            $stmt->execute();
-
+            $stmt->execute([':id'=>$this->id]);
+            //echo $this->id;
             $dataRow = $stmt->fetch(PDO::FETCH_ASSOC);
+           
             
             $this->nom = $dataRow['nom'];
             $this->auteur = $dataRow['auteur'];

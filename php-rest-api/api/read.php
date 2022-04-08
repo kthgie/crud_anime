@@ -17,7 +17,7 @@
     if($itemCount > 0){
         
         $MangaArr = array();
-        $MangaArr["body"] = array();
+       
         $MangaArr["itemCount"] = $itemCount;
 
         while ($row = $stmt->fetch(PDO::FETCH_ASSOC)){
@@ -35,7 +35,7 @@
 
             );
 
-            array_push($MangaArr["body"], $e);
+            array_push($MangaArr, $e);
         }
         echo json_encode($MangaArr);
     }
